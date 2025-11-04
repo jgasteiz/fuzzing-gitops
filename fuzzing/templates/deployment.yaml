@@ -16,6 +16,13 @@ spec:
       labels:
         {{- include "fuzzing.selectorLabels" . | nindent 8 }}
     spec:
+      initContainers:
+      - name: blog-generator
+        image: "{{ .Values.initContainer.repository }}:{{ .Values.initContainer.tag }}"
+        imagePullPolicy: {{ .Values.initContainer.pullPolicy }}
+        volumeMounts:
+        - name: html-content
+          mountPath: /output
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -40,5 +47,4 @@ spec:
           readOnly: true
       volumes:
       - name: html-content
-        configMap:
-          name: {{ include "fuzzing.fullname" . }}
+        emptyDir: {}

@@ -5,6 +5,15 @@ image:
   pullPolicy: IfNotPresent
   tag: "latest"
 
+initContainer:
+  # For Minikube local development: use simple image name without registry
+  # For production with registry: use full path like "your-registry.com/blog-generator"
+  repository: blog-generator
+  # For Minikube: "Never" prevents pulling from remote registry (use local image only)
+  # For production with registry: use "IfNotPresent" or "Always"
+  pullPolicy: Never
+  tag: "latest"
+
 service:
   type: ClusterIP
   port: 80
