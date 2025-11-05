@@ -13,7 +13,7 @@ initContainer:
   # For production with registry: use "IfNotPresent" or "Always"
   pullPolicy: Never
   # Tag is auto-updated by build_init_container.sh script with git commit hash
-  tag: "210fc56" # initContainer tag
+  tag: "b06b2b6" # initContainer tag
 
 service:
   type: ClusterIP

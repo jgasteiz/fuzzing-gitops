@@ -1,1 +1,6 @@
 .idea
+
+# Blog generation artifacts (if scripts run locally)
+blog/
+env/
+node_modules/
