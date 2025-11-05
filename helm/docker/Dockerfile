@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 RUN npm install -g yarn
 
 # Copy the generation script
-COPY scripts/generate_blog.sh /generate_blog.sh
+COPY generate_blog.sh /generate_blog.sh
 RUN chmod +x /generate_blog.sh
 
 # Set working directory
